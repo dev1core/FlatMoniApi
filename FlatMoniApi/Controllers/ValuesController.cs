@@ -9,20 +9,20 @@ using Microsoft.AspNetCore.Mvc;
 namespace FlatMoniApi.Controllers
 {
     [Route("api/[controller]")]
-    public class ValuesController : Controller
+    public class ValuesController : ControllerBase
     {
-        // GET: api/<controller>
+        // GET: api/values
         [HttpGet]
         public IEnumerable<string> Get()
         {
             return new string[] { "value1", "value2" };
         }
 
-        // GET api/<controller>/5
-        [HttpGet("{id}")]
-        public string Get(int id)
+        // GET api/values/5
+        [HttpGet("{id=112}")]
+        public string Get(int id, string sensorName)
         {
-            return $"value {id} there is new id check this!";
+            return $"value {id} (id) from sensor {sensorName}";
         }
 
         // POST api/<controller>
