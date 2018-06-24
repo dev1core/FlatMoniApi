@@ -4,7 +4,7 @@ using System.Text;
 
 namespace FlatMoniApi.Repositories
 {
-    interface IMeasure
+    interface IMeasureRepository
     {
         //cqs pattern
 
@@ -18,7 +18,7 @@ namespace FlatMoniApi.Repositories
 
         void Update(Measure measure);
 
-        void Remove(Measure measure);
+        void Remove(Guid id);
 
     }
 }

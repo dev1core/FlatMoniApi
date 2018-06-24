@@ -1,13 +1,19 @@
 ﻿using FlatMoniApi.Repositories;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 namespace FlatMoniApi.FlatMoni.Infrastructure.Repositories
 {
     class MeasureRepository : IMeasureRepository
     {
-        private static ISet<Measure> _measurements = new HashSet<Measure>();
+        private static ISet<Measure> _measurements = new HashSet<Measure>
+        {
+            new Measure("Temperatura pokoju",24,"Celcius",DateTime.Now),
+            new Measure("Temperatura pokoju",23,"Celcius",DateTime.Now),
+            new Measure("Temperatura pokoju",22,"Celcius",DateTime.Now)
+        };
 
         public void Add(Measure measure)
         {
@@ -16,22 +22,23 @@ namespace FlatMoniApi.FlatMoni.Infrastructure.Repositories
 
         public Measure Get(Guid Id)
         {
-            throw new NotImplementedException();
+            return _measurements.Single(x => x.Id == Id);
         }
 
         public Measure Get(DateTime date)
         {
-            throw new NotImplementedException();
+            return _measurements.Single(x => x.Date == date);
         }
 
         public IEnumerable<Measure> GetAll()
         {
-            throw new NotImplementedException();
+            return _measurements;
         }
 
-        public void Remove(Measure measure)
+        public void Remove(Guid id)
         {
-            throw new NotImplementedException();
+            var user = Get(id);
+            _measurements.Remove(user);
         }
 
         public void Update(Measure measure)

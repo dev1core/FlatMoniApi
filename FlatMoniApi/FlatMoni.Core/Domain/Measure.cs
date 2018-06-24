@@ -17,13 +17,13 @@ namespace FlatMoniApi
         {
         }
 
-        public Measure(string name, float value, string unit)
+        public Measure(string name, float value, string unit, DateTime date)
         {
             Id = Guid.NewGuid();
             Name = name;
             Value = value;
             Unit = unit;
-            Date = DateTime.UtcNow;
+            Date = date;
         }
 
         //dodanie walidacji
