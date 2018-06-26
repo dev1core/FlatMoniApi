@@ -1,8 +1,6 @@
 ﻿using FlatMoniApi.FlatMoni.Infrastructure.DTO;
 using FlatMoniApi.Repositories;
 using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace FlatMoniApi.FlatMoni.Infrastructure.Services
 {
@@ -16,9 +14,9 @@ namespace FlatMoniApi.FlatMoni.Infrastructure.Services
 
         }
 
-        public MeasureDto Get(DateTime date)
+        public MeasureDto Get(string name)
         {
-            var measure = _measureRepository.Get(date);
+            var measure = _measureRepository.Get(name);
             return new MeasureDto {
                 Id = measure.Id,
                 Date = measure.Date,
@@ -28,9 +26,9 @@ namespace FlatMoniApi.FlatMoni.Infrastructure.Services
             };
         }
 
-        public void Record(string name, float value, string unit)
+        public void Record(string name, float value, string unit, DateTime date)
         {
-            var measure = new Measure(name, value, unit);
+            var measure = new Measure(name, value, unit, date);
 
             _measureRepository.Add(measure);
         }

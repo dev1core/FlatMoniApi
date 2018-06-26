@@ -10,7 +10,7 @@ namespace FlatMoniApi.Repositories
 
         Measure Get(Guid Id);
 
-        Measure Get(DateTime date);
+        Measure Get(string name);
 
         IEnumerable<Measure> GetAll();
 
@@ -19,6 +19,5 @@ namespace FlatMoniApi.Repositories
         void Update(Measure measure);
 
         void Remove(Guid id);
-
     }
 }

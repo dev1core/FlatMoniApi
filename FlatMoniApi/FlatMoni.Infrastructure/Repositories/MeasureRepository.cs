@@ -10,9 +10,12 @@ namespace FlatMoniApi.FlatMoni.Infrastructure.Repositories
     {
         private static ISet<Measure> _measurements = new HashSet<Measure>
         {
-            new Measure("Temperatura pokoju",24,"Celcius",DateTime.Now),
-            new Measure("Temperatura pokoju",23,"Celcius",DateTime.Now),
-            new Measure("Temperatura pokoju",22,"Celcius",DateTime.Now)
+            new Measure("temp1",24,"Celcius", DateTime.Parse("5/1/2008 8:30:52 AM",
+                                      System.Globalization.CultureInfo.InvariantCulture)),
+            new Measure("temp2",23,"Celcius", DateTime.Parse("6/1/2008 8:30:52 AM",
+                                      System.Globalization.CultureInfo.InvariantCulture)),
+            new Measure("temp3",22,"Celcius", DateTime.Parse("7/1/2008 8:30:52 AM",
+                                      System.Globalization.CultureInfo.InvariantCulture))
         };
 
         public void Add(Measure measure)
@@ -25,9 +28,9 @@ namespace FlatMoniApi.FlatMoni.Infrastructure.Repositories
             return _measurements.Single(x => x.Id == Id);
         }
 
-        public Measure Get(DateTime date)
+        public Measure Get(string name)
         {
-            return _measurements.Single(x => x.Date == date);
+            return _measurements.Single(x => x.Name == name);
         }
 
         public IEnumerable<Measure> GetAll()

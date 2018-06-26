@@ -7,7 +7,7 @@ namespace FlatMoniApi.FlatMoni.Infrastructure.Services
 {
     public interface IMeasureService
     {
-        MeasureDto Get(string name, DateTime date);
+        MeasureDto Get(string name);
         void Record(string name, float value, string unit, DateTime date);
     }
 }

@@ -19,10 +19,10 @@ namespace FlatMoniApi.Controllers
         }
 
         // GET: api/values
-        [HttpGet("{name})")]
-        public MeasureDto Get(string name, DateTime date)
+        [HttpGet("{name}")]
+        public MeasureDto Get(string name)
         {
-            return _measureService.Get(name, date);
+                     return _measureService.Get(name);
         }
     }
 }
