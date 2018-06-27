@@ -11,6 +11,7 @@ using System;
 using System.Text;
 using Microsoft.IdentityModel.Tokens;
 using Newtonsoft.Json;
+using FlatMoniApi.FlatMoni.Infrastructure.Mappers;
 
 namespace FlatMoniApi
 {
@@ -35,6 +36,7 @@ namespace FlatMoniApi
         {
             services.AddScoped<IMeasureRepository, MeasureRepository>();
             services.AddScoped<IMeasureService, MeasureService>();
+            services.AddSingleton(AutoMapperConfig.Initialize());
             services.AddMvc();
         }
 

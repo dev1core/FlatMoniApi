@@ -1,4 +1,5 @@
-﻿using FlatMoniApi.FlatMoni.Infrastructure.DTO;
+﻿using AutoMapper;
+using FlatMoniApi.FlatMoni.Infrastructure.DTO;
 using FlatMoniApi.Repositories;
 using System;
 
@@ -8,22 +9,19 @@ namespace FlatMoniApi.FlatMoni.Infrastructure.Services
     {
         private readonly IMeasureRepository _measureRepository;
 
-        public MeasureService(IMeasureRepository measureRepository)
+        private readonly IMapper _mapper;
+
+        public MeasureService(IMeasureRepository measureRepository, IMapper mapper)
         {
             _measureRepository = measureRepository;
-
+            _mapper = mapper;
         }
 
         public MeasureDto Get(string name)
         {
             var measure = _measureRepository.Get(name);
-            return new MeasureDto {
-                Id = measure.Id,
-                Date = measure.Date,
-                Name = measure.Name,
-                Unit = measure.Unit,
-                Value = measure.Value
-            };
+
+            return _mapper.Map<Measure, MeasureDto>(measure);
         }
 
         public void Record(string name, float value, string unit, DateTime date)
