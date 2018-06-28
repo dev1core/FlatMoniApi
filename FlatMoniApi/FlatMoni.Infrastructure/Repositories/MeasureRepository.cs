@@ -25,12 +25,12 @@ namespace FlatMoniApi.FlatMoni.Infrastructure.Repositories
 
         public Measure Get(Guid Id)
         {
-            return _measurements.Single(x => x.Id == Id);
+            return _measurements.SingleOrDefault(x => x.Id == Id);
         }
 
         public Measure Get(string name)
         {
-            return _measurements.Single(x => x.Name == name);
+            return _measurements.SingleOrDefault(x => x.Name == name);
         }
 
         public IEnumerable<Measure> GetAll()

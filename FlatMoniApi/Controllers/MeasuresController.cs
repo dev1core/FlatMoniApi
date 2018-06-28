@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using FlatMoniApi.FlatMoni.Infrastructure.Command.Users;
 using FlatMoniApi.FlatMoni.Infrastructure.DTO;
 using FlatMoniApi.FlatMoni.Infrastructure.Services;
 using Microsoft.AspNetCore.Mvc;
@@ -23,6 +24,12 @@ namespace FlatMoniApi.Controllers
         public MeasureDto Get(string name)
         {
                      return _measureService.Get(name);
+        }
+
+        [HttpPost("")]
+        public void Post([FromBody]CreateMeasure request)
+        {
+            _measureService.Record(request.Name, request.Value, request.Unit, request.Date);
         }
     }
 }
