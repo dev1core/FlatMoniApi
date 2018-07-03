@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using FlatMoniApi.FlatMoni.Infrastructure.Command.Users;
 using FlatMoniApi.FlatMoni.Infrastructure.DTO;
 using FlatMoniApi.FlatMoni.Infrastructure.Services;
@@ -21,15 +22,12 @@ namespace FlatMoniApi.Controllers
 
         // GET: api/measures
         [HttpGet("{name}")]
-        public MeasureDto Get(string name)
-        {
-                     return _measureService.Get(name);
-        }
+        public async Task<MeasureDto> Get(string name) => await _measureService.GetAsync(name);        
 
         [HttpPost("")]
-        public void Post([FromBody]CreateMeasure request)
+        public async Task Post([FromBody]CreateMeasure request)
         {
-            _measureService.Record(request.Name, request.Value, request.Unit, request.Date);
+            await _measureService.RecordAsync(request.Name, request.Value, request.Unit, request.Date);
         }
     }
 }

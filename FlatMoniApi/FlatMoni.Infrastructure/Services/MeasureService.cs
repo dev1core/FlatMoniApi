@@ -2,6 +2,7 @@
 using FlatMoniApi.FlatMoni.Infrastructure.DTO;
 using FlatMoniApi.Repositories;
 using System;
+using System.Threading.Tasks;
 
 namespace FlatMoniApi.FlatMoni.Infrastructure.Services
 {
@@ -17,18 +18,18 @@ namespace FlatMoniApi.FlatMoni.Infrastructure.Services
             _mapper = mapper;
         }
 
-        public MeasureDto Get(string name)
+        public async Task<MeasureDto> GetAsync(string name)
         {
-            var measure = _measureRepository.Get(name);
+            var measure = await _measureRepository.GetAsync(name);
 
             return _mapper.Map<Measure, MeasureDto>(measure);
         }
 
-        public void Record(string name, float value, string unit, DateTime date)
+        public async Task RecordAsync(string name, float value, string unit, DateTime date)
         {
             var measure = new Measure(name, value, unit, date);
 
-            _measureRepository.Add(measure);
+            await _measureRepository.AddAsync(measure);
         }
     }
 }

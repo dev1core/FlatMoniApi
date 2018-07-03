@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace FlatMoniApi.Repositories
 {
@@ -8,16 +9,16 @@ namespace FlatMoniApi.Repositories
     {
         //cqs pattern
 
-        Measure Get(Guid Id);
+        Task <Measure> GetAsync(Guid Id);
 
-        Measure Get(string name);
+        Task <Measure> GetAsync(string name);
 
-        IEnumerable<Measure> GetAll();
+        Task <IEnumerable<Measure>> GetAllAsync();
 
-        void Add(Measure measure);
+        Task AddAsync(Measure measure);
 
-        void Update(Measure measure);
+        Task UpdateAsync(Measure measure);
 
-        void Remove(Guid id);
+        Task RemoveAsync(Guid id);
     }
 }

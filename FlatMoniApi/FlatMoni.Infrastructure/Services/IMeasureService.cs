@@ -2,12 +2,13 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace FlatMoniApi.FlatMoni.Infrastructure.Services
 {
     public interface IMeasureService
     {
-        MeasureDto Get(string name);
-        void Record(string name, float value, string unit, DateTime date);
+        Task<MeasureDto> GetAsync(string name);
+        Task RecordAsync(string name, float value, string unit, DateTime date);
     }
 }

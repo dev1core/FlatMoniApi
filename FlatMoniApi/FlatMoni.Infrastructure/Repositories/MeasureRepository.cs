@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace FlatMoniApi.FlatMoni.Infrastructure.Repositories
 {
@@ -18,35 +19,28 @@ namespace FlatMoniApi.FlatMoni.Infrastructure.Repositories
                                       System.Globalization.CultureInfo.InvariantCulture))
         };
 
-        public void Add(Measure measure)
+        public async Task AddAsync(Measure measure)
         {
             _measurements.Add(measure);
+            await Task.CompletedTask;
         }
 
-        public Measure Get(Guid Id)
-        {
-            return _measurements.SingleOrDefault(x => x.Id == Id);
-        }
+        public async Task<Measure> GetAsync(Guid Id) => await Task.FromResult(_measurements.SingleOrDefault(x => x.Id == Id));
 
-        public Measure Get(string name)
-        {
-            return _measurements.SingleOrDefault(x => x.Name == name);
-        }
+        public async Task<Measure> GetAsync(string name) => await Task.FromResult(_measurements.SingleOrDefault(x => x.Name == name));
 
-        public IEnumerable<Measure> GetAll()
-        {
-            return _measurements;
-        }
+        public async Task<IEnumerable<Measure>> GetAllAsync() => await Task.FromResult(_measurements);
 
-        public void Remove(Guid id)
+        public async Task RemoveAsync(Guid id)
         {
-            var user = Get(id);
+            var user = await GetAsync(id);
             _measurements.Remove(user);
+            await Task.CompletedTask;
         }
 
-        public void Update(Measure measure)
+        public async Task UpdateAsync(Measure measure)
         {
-            throw new NotImplementedException();
+            await Task.CompletedTask;
         }
     }
 }
