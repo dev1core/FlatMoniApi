@@ -1,18 +1,21 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using FlatMoni.Core.Repositories;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
+using System;
 using System.Threading.Tasks;
-namespace FlatMoniApiTest.Services
+
+namespace FlatMoniApi.Tests.Services
 {
     [TestClass]
-    public class UserServiceTest
+    public class MeasureServiceTest
     {
+
         [TestMethod]
         public async Task Test()
         {
-
             var measureRepositoryMock = new Mock<IMeasureRepository>();
 
-            true.Equals(true);
+
         }
 
     }

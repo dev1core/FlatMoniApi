@@ -1,12 +1,13 @@
 ﻿using AutoMapper;
 using FlatMoniApi.FlatMoni.Infrastructure.DTO;
-using FlatMoniApi.Repositories;
+using FlatMoni.Core.Repositories;
 using System;
 using System.Threading.Tasks;
+using FlatMoni.Core.Domain;
 
 namespace FlatMoniApi.FlatMoni.Infrastructure.Services
 {
-    class MeasureService : IMeasureService
+    public class MeasureService : IMeasureService
     {
         private readonly IMeasureRepository _measureRepository;
 

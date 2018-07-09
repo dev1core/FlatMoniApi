@@ -1,13 +1,13 @@
-﻿using FlatMoniApi.Repositories;
+﻿using FlatMoni.Core.Repositories;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
+using FlatMoni.Core.Domain;
 
-namespace FlatMoniApi.FlatMoni.Infrastructure.Repositories
+namespace FlatMoni.Infrastructure.Repositories
 {
-    class MeasureRepository : IMeasureRepository
+    public class MeasureRepository : IMeasureRepository
     {
         private static ISet<Measure> _measurements = new HashSet<Measure>
         {

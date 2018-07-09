@@ -1,12 +1,12 @@
-﻿using FlatMoniApi.FlatMoni.Infrastructure.Repositories;
-using FlatMoniApi.FlatMoni.Infrastructure.Services;
-using FlatMoniApi.Repositories;
+﻿using FlatMoniApi.FlatMoni.Infrastructure.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using FlatMoniApi.FlatMoni.Infrastructure.Mappers;
+using FlatMoni.Core.Repositories;
+using FlatMoni.Infrastructure.Repositories;
 
 namespace FlatMoniApi
 {

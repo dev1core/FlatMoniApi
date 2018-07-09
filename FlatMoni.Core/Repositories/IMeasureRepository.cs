@@ -1,11 +1,11 @@
-﻿using System;
+﻿using FlatMoni.Core.Domain;
+using System;
 using System.Collections.Generic;
-using System.Text;
 using System.Threading.Tasks;
 
-namespace FlatMoniApi.Repositories
+namespace FlatMoni.Core.Repositories
 {
-    interface IMeasureRepository
+    public interface IMeasureRepository
     {
         //cqs pattern
 
