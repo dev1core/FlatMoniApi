@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using FlatMoni.Core.Domain;
 using FlatMoniApi.FlatMoni.Infrastructure.DTO;
 using System;
 using System.Collections.Generic;

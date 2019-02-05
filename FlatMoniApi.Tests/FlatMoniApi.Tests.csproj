@@ -6,7 +6,7 @@
 
   <ItemGroup>
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="15.7.2" />
-    <PackageReference Include="Moq" Version="4.8.3" />
+    <PackageReference Include="Moq" Version="4.10.1" />
     <PackageReference Include="MSTest.TestAdapter" Version="1.3.2" />
     <PackageReference Include="MSTest.TestFramework" Version="1.3.2" />
     <PackageReference Include="NUnit" Version="3.10.1" />
@@ -14,6 +14,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\FlatMoni.Core\FlatMoni.Core.csproj" />
+    <ProjectReference Include="..\FlatMoni.Infrastructure\FlatMoni.Infrastructure.csproj" />
   </ItemGroup>
 
 </Project>

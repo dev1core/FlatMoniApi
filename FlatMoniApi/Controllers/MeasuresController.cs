@@ -11,7 +11,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace FlatMoniApi.Controllers
 {
     [Route("[controller]")]
-    public class MeasuresController : Controller
+    public class MeasuresController : ControllerBase
     {
         private readonly IMeasureService _measureService;
 

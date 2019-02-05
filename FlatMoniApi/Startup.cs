@@ -32,7 +32,7 @@ namespace FlatMoniApi
             services.AddScoped<IMeasureRepository, MeasureRepository>();
             services.AddScoped<IMeasureService, MeasureService>();
             services.AddSingleton(AutoMapperConfig.Initialize());
-            services.AddMvc();
+            //services.AddMvc();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
