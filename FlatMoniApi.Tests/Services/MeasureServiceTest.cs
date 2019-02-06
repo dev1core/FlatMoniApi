@@ -14,7 +14,7 @@ namespace FlatMoniApi.Tests.Services
     {
 
         [Fact]
-        public async Task MesureTest()
+        public async Task measureRecordAsyncTimesOnece()
         {
             //measure mock 
             var measureRepositoryMock = new Mock<IMeasureRepository>();

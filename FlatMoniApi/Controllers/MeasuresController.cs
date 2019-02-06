@@ -22,7 +22,15 @@ namespace FlatMoniApi.Controllers
 
         // GET: api/measures
         [HttpGet("{name}")]
-        public async Task<MeasureDto> Get(string name) => await _measureService.GetAsync(name);        
+        public async Task<IActionResult> Get(string name) {
+            var measure =  await _measureService.GetAsync(name);
+
+            if(measure == null)
+            {
+                return NotFound();
+            }
+            return Ok(measure);
+        }
 
         [HttpPost("")]
         public async Task Post([FromBody]CreateMeasure request)
